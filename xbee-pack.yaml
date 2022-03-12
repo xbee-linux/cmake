@@ -37,4 +37,4 @@ build:
         - ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --no-system-librhash --docdir=/share/doc/cmake-{% version %}
         - make -j12
         - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/libuv-v{% version %}"
+      directory: "{% xbeeSrc %}/cmake-{% version %}"
