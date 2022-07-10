@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4.
     Installed Programs: ccmake, cmake, cmake-gui (optional), cpack, and ctest
@@ -18,23 +16,9 @@ in:
   version: 3.22.2
 
 dependencies:
+  - ./builder
   - libuv
   - zlib
   - curl
-  - expat
   - libarchive
 
-
-provision:
-  - url: 
-      from: https://cmake.org/files/v3.22/cmake-{% version %}.tar.gz
-      todir: "{% xbeeSrc %}"
-
-build:
-   - shell:
-      cmds:
-        - sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
-        - ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --no-system-librhash --docdir=/share/doc/cmake-{% version %}
-        - make -j12
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/cmake-{% version %}"

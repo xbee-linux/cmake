@@ -1,0 +1,28 @@
+schema-version: 1.0
+
+type: builder
+
+in:
+  version:
+
+dependencies:
+  - libuv
+  - zlib
+  - curl
+  - expat
+  - libarchive
+
+
+provision:
+  - url: 
+      from: https://cmake.org/files/v3.22/cmake-{% version %}.tar.gz
+      todir: "{% xbeeSrc %}"
+
+build:
+   - shell:
+      cmds:
+        - sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
+        - ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --no-system-librhash --docdir=/share/doc/cmake-{% version %}
+        - make -j12
+        - make install DESTDIR={% xbeeOut %}
+      directory: "{% xbeeSrc %}/cmake-{% version %}"
