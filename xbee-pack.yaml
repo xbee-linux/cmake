@@ -12,7 +12,7 @@ description: |
       cpack: is the CMake packaging program
       ctest: is a testing utility for cmake-generated build trees
 
-in:
+var:
   version: 3.22.2
 
 dependencies:
