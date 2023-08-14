@@ -5,7 +5,7 @@ type: builder
 var:
   version:
 
-dependencies:
+builders:
   - libuv
   - zlib
   - curl

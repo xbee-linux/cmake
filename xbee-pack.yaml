@@ -15,7 +15,7 @@ description: |
 var:
   version: 3.22.2
 
-dependencies:
+builders:
   - ./builder
   - libuv
   - zlib
