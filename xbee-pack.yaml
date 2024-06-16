@@ -15,10 +15,11 @@ description: |
 var:
   version: 3.22.2
 
+dependency: curl
+
 builders:
   - ./builder
   - libuv
   - zlib
-  - curl
   - libarchive
 

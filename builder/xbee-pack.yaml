@@ -5,10 +5,11 @@ type: builder
 var:
   version:
 
+dependency: curl
+
 builders:
   - libuv
   - zlib
-  - curl
   - expat
   - libarchive
 
