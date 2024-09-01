@@ -13,7 +13,8 @@ description: |
       ctest: is a testing utility for cmake-generated build trees
 
 var:
-  version: 3.22.2
+  xbee:
+    version: 3.22.2
 
 dependency: curl
 

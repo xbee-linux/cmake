@@ -3,7 +3,8 @@ schema-version: 1.0
 type: builder
 
 var:
-  version:
+  xbee:
+    version:
 
 dependency: curl
 
@@ -16,14 +17,14 @@ builders:
 
 provision:
   - url: 
-      from: https://cmake.org/files/v3.22/cmake-{{ .version }}.tar.gz
+      from: https://cmake.org/files/v3.22/cmake-{{ .xbee.version }}.tar.gz
       todir: "{{ .xbee.src }}"
 
 build:
    - shell:
       cmds:
         - sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
-        - ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --no-system-librhash --docdir=/share/doc/cmake-{{ .version }}
+        - ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --no-system-librhash --docdir=/share/doc/cmake-{{ .xbee.version }}
         - make -j12
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/cmake-{{ .version }}"
+      directory: "{{ .xbee.src }}/cmake-{{ .xbee.version }}"
