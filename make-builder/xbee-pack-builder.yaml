@@ -1,14 +1,12 @@
 schema-version: 1.0
 
-type: builder
-
 var:
   xbee:
     version:
 
 dependency: curl
 
-builders:
+builder:
   - libuv
   - zlib
   - expat

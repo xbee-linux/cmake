@@ -18,8 +18,8 @@ var:
 
 dependency: curl
 
-builders:
-  - ./builder
+builder:
+  - ./make-builder
   - libuv
   - zlib
   - libarchive
